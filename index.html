@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050a1b"><title>Universal Store — Boutique Gaming</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="icon-btn menu-trigger" id="menuBtn" aria-label="Menu">☰</button>
+  <a class="brand" href="#home"><span class="brand-logo"><img src="assets/target/universal_u.png" alt="U"></span><span>Universal<span>Store</span></span></a>
+  <div class="top-actions"><button class="icon-btn" id="searchBtn" aria-label="Rechercher">⌕</button><button class="login-btn" id="accountBtn">Connexion</button></div>
+</header>
+
+<div id="drawerBackdrop" class="drawer-backdrop hidden"></div>
+<aside id="sideDrawer" class="side-drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <div class="drawer-brand"><span class="drawer-logo"><img src="assets/target/universal_u.png" alt="U"></span><div><b>Universal<span>Store</span></b><small>Votre boutique gaming</small></div></div>
+    <button id="closeDrawer" class="drawer-close" aria-label="Fermer">×</button>
+  </div>
+  <nav class="drawer-nav" aria-label="Navigation principale">
+    <a class="active" href="#home"><span class="nav-ico">⌂</span><b>Accueil</b></a>
+    <a href="#recharges"><span class="nav-ico"><img src="assets/target/icon_diamonds.png" alt=""></span><b>Recharges</b></a>
+    <a href="#accounts"><span class="nav-ico"><img src="assets/target/icon_accounts.png" alt=""></span><b>Comptes</b></a>
+    <a href="#promos"><span class="nav-ico"><img src="assets/target/icon_promos.png" alt=""></span><b>Promotions</b></a>
+    <a href="#orders"><span class="nav-ico"><img src="assets/target/icon_orders.png" alt=""></span><b>Mes commandes</b></a>
+    <a href="#orders"><span class="nav-ico">●</span><b>Mon compte</b></a>
+    <div class="drawer-divider"></div>
+    <button id="drawerCart" class="drawer-link"><span class="nav-ico">🛒</span><b>Panier</b></button>
+    <button id="drawerSettings" class="drawer-link"><span class="nav-ico">⚙</span><b>Paramètres</b></button>
+    <button id="drawerLogout" class="drawer-link"><span class="nav-ico">↪</span><b>Déconnexion</b></button>
+  </nav>
+</aside>
+
+<main>
+<section id="home" class="hero-wrap">
+  <div class="hero" id="heroSlider">
+    <div class="hero-slides" aria-hidden="true"></div>
+    <div class="hero-copy"><span class="pill">🔥 OFFRES GAMING</span><h1>Recharge. Achète.<br><strong>Joue plus.</strong></h1><p>Diamants Free Fire, comptes et promotions dans une boutique rapide et pensée pour ton téléphone.</p><a class="hero-btn" href="#recharges">Acheter maintenant <span>→</span></a></div>
+    <button class="hero-prev" id="heroPrev" aria-label="Visuel précédent">‹</button><button class="hero-next" id="heroNext" aria-label="Visuel suivant">›</button><div class="hero-dots" id="heroDots"></div>
+  </div>
+</section>
+
+<section class="quick-cats">
+  <a class="quick-card q-diamonds" href="#recharges"><span class="cat-icon"><img src="assets/target/icon_diamonds.png" alt=""></span><div><b>Diamants</b><small>Recharge</small></div></a>
+  <a class="quick-card q-accounts" href="#accounts"><span class="cat-icon"><img src="assets/target/icon_accounts.png" alt=""></span><div><b>Comptes</b><small>Marketplace</small></div></a>
+  <a class="quick-card q-promos" href="#promos"><span class="cat-icon"><img src="assets/target/icon_promos.png" alt=""></span><div><b>Promos</b><small>Bonnes affaires</small></div></a>
+  <a class="quick-card q-orders" href="#orders"><span class="cat-icon"><img src="assets/target/icon_orders.png" alt=""></span><div><b>Commandes</b><small>Suivi</small></div></a>
+</section>
+
+<section id="recharges" class="section">
+  <div class="section-title"><div><small>FREE FIRE</small><h2>Recharges populaires</h2></div><a href="#recharges">Voir tout ›</a></div>
+  <div class="player-card"><div><span class="field-icon">🆔</span><div><label for="playerUid">Ton ID joueur</label><input id="playerUid" placeholder="Ex : 123456789" inputmode="numeric"></div><button class="save-id" id="saveUid">✓</button></div><small>Connecte-toi pour retrouver tes commandes sur tous tes appareils.</small></div>
+  <div id="packs" class="product-row"></div>
+</section>
+
+<section id="promos" class="promo-banner"><div><span>⚡ PROMOTION</span><h2>Les offres du moment</h2><p>Les promotions sont publiées directement par le gérant.</p></div><a href="#recharges" class="round-arrow">→</a></section>
+
+<section id="accounts" class="section"><div class="section-title"><div><small>MARKETPLACE</small><h2>Comptes à vendre</h2></div><a href="#accounts">Voir tout ›</a></div><div id="accountsGrid" class="accounts-row"></div></section>
+<section id="orders" class="section"><div class="section-title"><div><small>MON ESPACE</small><h2>Mes commandes</h2></div></div><div id="ordersGuest" class="track-card"><b>Connecte-toi pour voir tes commandes.</b><p class="muted">Ton historique est privé et lié à ton compte.</p><button class="primary-btn" id="ordersLogin">Se connecter</button></div><div id="ordersUser" class="hidden"><div class="account-strip"><div><span class="eyebrow">CONNECTÉ</span><b id="userEmail"></b></div><button class="ghost-btn" id="logoutBtn">Déconnexion</button></div><div id="myOrders" class="orders-list"></div></div></section>
+</main>
+
+
+<div id="modal" class="modal hidden"><div class="modal-box"><button id="closeModal" class="close">×</button><span class="eyebrow">PAIEMENT</span><h2>Finaliser la commande</h2><div id="selected"></div><label>Moyen de paiement<select id="paymentMethod"><option value="wave">Wave</option><option value="mobile_money">Mobile Money</option></select></label><label>Référence du paiement<input id="paymentReference" placeholder="Référence Wave / Mobile Money"></label><label>Reçu de paiement<input id="receipt" type="file" accept="image/*,.pdf"></label><button id="submitOrder" class="primary-btn full">Envoyer la commande</button><div id="paymentMessage"></div></div></div>
+<div id="authModal" class="modal hidden"><div class="modal-box auth-box"><button id="closeAuth" class="close">×</button><span class="eyebrow">MON COMPTE</span><h2 id="authTitle">Connexion</h2><p class="muted">Crée ton compte ou connecte-toi pour suivre tes commandes.</p><form id="authForm"><label>Email<input id="authEmail" type="email" required placeholder="ton@email.com"></label><label>Mot de passe<input id="authPassword" type="password" minlength="6" required placeholder="••••••••"></label><button class="primary-btn full" id="authSubmit">Se connecter</button></form><button class="link-btn" id="toggleAuthMode">Créer un compte</button><div id="authMessage"></div></div></div>
+<script src="store-config.js"></script><script type="module" src="app.js"></script>
+</body></html>

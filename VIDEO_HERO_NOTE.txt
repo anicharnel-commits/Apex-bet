@@ -1,0 +1,4 @@
+Le fichier vidéo fourni pendant cette étape est un enregistrement d'écran du site, pas une vidéo Free Fire autonome.
+Il n'est donc pas utilisé comme arrière-plan du hero.
+Le hero est préparé avec des visuels Free Fire locaux et synchronisés avec le texte.
+Une vraie vidéo Free Fire peut être ajoutée plus tard comme calque <video> sans modifier le reste du site.
